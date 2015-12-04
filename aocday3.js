@@ -5,15 +5,14 @@ var block = {}; block[[0,0]] = 1;
 var santa = {x: 0, y:0} //x, y
 
 var calcHouses = function(dir, person){
-    if(dir == '^' && !([person.x, ++person.y] in block)){
+    if(dir == '^' && !([person.x, ++person.y] in block))
     	block[[person.x, person.y]] = 1;
-    } else if(dir == '>' && !([++person.x, person.y] in block)){
+    else if(dir == '>' && !([++person.x, person.y] in block))
     	block[[person.x, person.y]] = 1;
-    } else if(dir == 'v' && !([person.x, --person.y] in block)){
+    else if(dir == 'v' && !([person.x, --person.y] in block))
     	block[[person.x, person.y]] = 1;
-    } else if (dir == '<' && !([--person.x, person.y] in block)){
+    else if (dir == '<' && !([--person.x, person.y] in block))
     	block[[person.x, person.y]] = 1;
-    }
 }
 
 //part 1
