@@ -4,33 +4,17 @@
 
 var input = document.getElementsByClassName("puzzle-input")[0].innerText
 
-var found = false;
-var i = 1;
-var hash = "";
-var reg = /^00000/;
-var regTwo = /^000000/;
-var testinput = input;
+var i = 1, testinput = input, t0 = performance.now();
 
 //part 1
-while(!found){
-	hash = window.md5(testinput);
-	if(reg.exec(hash)){
-		found = true;
-	} else {
-		testinput = input + i++;
-	}
+while(!(/^00000/).exec(window.md5(testinput))){
+	testinput = input + i++;
 }
-console.log("AdventCoin: " + (i - 1));
+console.log("AdventCoin: " + (i - 1) + " --- " + (performance.now() - t0));
 
 //part 2
-testinput = input;
-i = 1;
-while(!found){
-	hash = window.md5(testinput);
-	if(regTwo.exec(hash)){
-		found = true;
-	} else {
-		testinput = input + i++;
-	}
+testinput = input; i = 1; t0 = performance.now();
+while(!(/^000000/).exec(window.md5(testinput))){
+	testinput = input + i++;
 }
-console.log("AdventCoin: " + (i - 1));
+console.log("AdventCoin: " + (i - 1) + " --- " + (performance.now() - t0) );
